@@ -59,3 +59,14 @@ mysql> INSERT INTO employee_payroll (name, salary, start) VALUES
     -> ('Terisa',300000.00, '2018-02-06');
 Query OK, 3 rows affected (0.27 sec)
 Records: 3  Duplicates: 0  Warnings: 0
+
+#UC4 Show data from table.
+mysql> select * from employee_payroll;
++----+---------+--------+------------+
+| id | name    | salary | start      |
++----+---------+--------+------------+
+|  1 | Bill    | 100000 | 2021-01-03 |
+|  2 | Charlie | 200000 | 2019-01-05 |
+|  3 | Terisa  | 300000 | 2018-02-06 |
++----+---------+--------+------------+
+3 rows in set (0.07 sec)
