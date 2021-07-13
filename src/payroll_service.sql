@@ -33,7 +33,7 @@ mysql> SELECT DATABASE()
 +-----------------+
 1 row in set (0.00 sec)
 
-#UC2 create a table.
+#UC2: create a table.
 mysql> CREATE TABLE employee_payroll
     -> (
     -> id INT unsigned NOT NULL AUTO_INCREMENT,
@@ -51,3 +51,11 @@ mysql> SHOW TABLES;
 | employee_payroll          |
 +---------------------------+
 1 row in set (0.16 sec)
+
+#UC3: Insert data in table
+mysql> INSERT INTO employee_payroll (name, salary, start) VALUES
+    -> ('Bill',100000.00, '2021-01-03'),
+    -> ('Charlie',200000.00, '2019-01-05'),
+    -> ('Terisa',300000.00, '2018-02-06');
+Query OK, 3 rows affected (0.27 sec)
+Records: 3  Duplicates: 0  Warnings: 0
