@@ -89,3 +89,26 @@ mysql> SELECT * FROM employee_payroll WHERE start BETWEEN CAST('2018-01-01' AS D
 |  3 | Terisa  | 300000 | 2018-02-06 |
 +----+---------+--------+------------+
 3 rows in set (0.05 sec)
+
+#UC6 Add gender and update.
+mysql> ALTER TABLE employee_payroll ADD gender CHAR(1) AFTER name;
+Query OK, 0 rows affected (0.78 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE employee_payroll SET gender = 'M' WHERE name='Bill' or name='Charlie';
+Query OK, 2 rows affected (0.08 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> UPDATE employee_payroll SET gender = 'F' WHERE name='Terisa';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+--------+------------+
+| id | name    | gender | salary | start      |
++----+---------+--------+--------+------------+
+|  1 | Bill    | M      | 100000 | 2021-01-03 |
+|  2 | Charlie | M      | 200000 | 2019-01-05 |
+|  3 | Terisa  | F      | 300000 | 2018-02-06 |
++----+---------+--------+--------+------------+
+3 rows in set (0.00 sec)
