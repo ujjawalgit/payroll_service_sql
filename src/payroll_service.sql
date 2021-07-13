@@ -70,3 +70,22 @@ mysql> select * from employee_payroll;
 |  3 | Terisa  | 300000 | 2018-02-06 |
 +----+---------+--------+------------+
 3 rows in set (0.07 sec)
+
+#UC5 Check according to date range.
+mysql> SELECT salary FROM employee_payroll WHERE name = 'Bill';
++--------+
+| salary |
++--------+
+| 100000 |
++--------+
+1 row in set (0.03 sec)
+
+mysql> SELECT * FROM employee_payroll WHERE start BETWEEN CAST('2018-01-01' AS DATE) AND DATE(NOW());
++----+---------+--------+------------+
+| id | name    | salary | start      |
++----+---------+--------+------------+
+|  1 | Bill    | 100000 | 2021-01-03 |
+|  2 | Charlie | 200000 | 2019-01-05 |
+|  3 | Terisa  | 300000 | 2018-02-06 |
++----+---------+--------+------------+
+3 rows in set (0.05 sec)
