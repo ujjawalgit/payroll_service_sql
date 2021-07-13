@@ -32,3 +32,22 @@ mysql> SELECT DATABASE()
 | payroll_service |
 +-----------------+
 1 row in set (0.00 sec)
+
+#UC2 create a table.
+mysql> CREATE TABLE employee_payroll
+    -> (
+    -> id INT unsigned NOT NULL AUTO_INCREMENT,
+    -> name VARCHAR(150) NOT NULL,
+    -> salary double NOT NULL,
+    -> start DATE NOT NULL,
+    -> PRIMARY KEY (id)
+    -> );
+Query OK, 0 rows affected (1.14 sec)
+
+mysql> SHOW TABLES;
++---------------------------+
+| Tables_in_payroll_service |
++---------------------------+
+| employee_payroll          |
++---------------------------+
+1 row in set (0.16 sec)
