@@ -112,3 +112,66 @@ mysql> select * from employee_payroll;
 |  3 | Terisa  | F      | 300000 | 2018-02-06 |
 +----+---------+--------+--------+------------+
 3 rows in set (0.00 sec)
+
+#UC7 find sum,average,min,max,count.
+.............................Sum............................
+mysql> SELECT SUM(salary) FROM employee_payroll
+    -> WHERE gender = 'F' GROUP BY gender;
++-------------+
+| SUM(salary) |
++-------------+
+|      300000 |
++-------------+
+1 row in set (0.04 sec)
+
+mysql> SELECT SUM(salary) FROM employee_payroll
+    -> WHERE gender = 'M' GROUP BY gender;
++-------------+
+| SUM(salary) |
++-------------+
+|      300000 |
++-------------+
+1 row in set (0.00 sec)
+............................Average.................................................
+mysql> SELECT AVG(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY GENDER;
++-------------+
+| AVG(salary) |
++-------------+
+|      150000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT AVG(salary) FROM employee_payroll WHERE gender = 'F' GROUP BY GENDER;
++-------------+
+| AVG(salary) |
++-------------+
+|      300000 |
++-------------+
+1 row in set (0.00 sec)
+..............................min..............................
+mysql> SELECT gender, MIN(salary) FROM employee_payroll GROUP BY GENDER;
++--------+-------------+
+| gender | MIN(salary) |
++--------+-------------+
+| M      |      100000 |
+| F      |      300000 |
++--------+-------------+
+2 rows in set (0.09 sec)
+............................max..............................
+mysql> SELECT gender, MAX(salary) FROM employee_payroll GROUP BY GENDER;
++--------+-------------+
+| gender | MAX(salary) |
++--------+-------------+
+| M      |      200000 |
+| F      |      300000 |
++--------+-------------+
+2 rows in set (0.00 sec)
+.........................count................................
+mysql> SELECT gender, COUNT(name) FROM employee_payroll GROUP BY GENDER;
++--------+-------------+
+| gender | COUNT(name) |
++--------+-------------+
+| M      |           2 |
+| F      |           1 |
++--------+-------------+
+2 rows in set (0.02 sec)
